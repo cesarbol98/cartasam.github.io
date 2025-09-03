@@ -47,7 +47,6 @@ const photoPositions = [
     { x: 20, y: 48 }  // Fila 2, Columna 1 (más a la izquierda)
 ];
 
-// Crear fotos en mosaico 2x3
 function createPhotos() {
     const container = document.querySelector(".photos-container");
 
@@ -65,9 +64,7 @@ function createPhotos() {
             photo.style.setProperty('--final-x', finalX);
             photo.style.setProperty('--final-y', finalY);
 
-            document.body.appendChild(photo);
-
-            // Mantener la posición final después de la animación
+            container.appendChild(photo); // ✅ ahora se meten dentro del contenedor
             photo.addEventListener('animationend', () => {
                 photo.style.transform = 'translate(0, 0)';
                 photo.style.left = finalX;
@@ -75,7 +72,7 @@ function createPhotos() {
             });
         });
     } else {
-        // 📱 Versión móvil → Grid ordenado
+        // 📱 Versión móvil → Carrusel deslizable
         photos.forEach(photoUrl => {
             const photo = document.createElement('div');
             photo.classList.add('photo');
@@ -248,6 +245,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
