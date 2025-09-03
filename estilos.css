@@ -316,6 +316,27 @@ p {
     max-height: 400px;
 }
 
+.photos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 5;
+}
+
+.photo {
+    position: relative; /* ya no absolute */
+    width: 100%;
+    padding-top: 100%; /* hace que sea cuadrada */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
 
 
 
