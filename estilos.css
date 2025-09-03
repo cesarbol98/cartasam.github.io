@@ -81,16 +81,16 @@ p {
 
 .photo {
     position: absolute;
-    width: 20vw;
+    width: 20vw;   /* proporcional al ancho de la pantalla */
     height: 20vw;
-    max-width: 200px;
+    max-width: 200px;  /* no más grandes en PC */
     max-height: 200px;
-    background-size: contain; /* Mostrar imagen completa */
-    background-position: center; /* Corregido de 'justify' a 'center' */
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
     opacity: 0.9;
-    animation: riseToPosition 2s ease-out forwards; /* Corregido de 0s a 2s */
-    z-index: 0; /* Detrás de los corazones y frases */
+    animation: riseToPosition 2s ease-out forwards;
+    z-index: 0; 
 }
 
 @keyframes floatHeart {
@@ -203,6 +203,8 @@ p {
     .photo {
         width: 35vw;
         height: 35vw;
+        max-width: 160px;
+        max-height: 160px;
     }
 
     .auto-sticker {
@@ -313,6 +315,7 @@ p {
     max-width: 400px;
     max-height: 400px;
 }
+
 
 
 
