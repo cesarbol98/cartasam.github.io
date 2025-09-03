@@ -18,11 +18,11 @@ audio.volume = 0.2; // 30% de volumen;
 // Lista de imágenes personalizadas
 const photos = [
     'foto1.jpeg',
-    'foto2.jpeg',
-    'foto3.jpeg',
-    'foto4.jpeg',
-    'foto5.jpeg',
-    'foto6.jpeg'
+    'foto2.jpg',
+    'foto3.jpg',
+    'foto4.jpg',
+    'foto5.jpg',
+    'foto6.jpg'
 ];
 
 // Lista de frases románticas
@@ -235,4 +235,5 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
