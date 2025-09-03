@@ -80,18 +80,14 @@ p {
 }
 
 .photo {
-    position: absolute;
-    width: 20vw;   /* proporcional al ancho de la pantalla */
-    height: 20vw;
-    max-width: 200px;  /* no más grandes en PC */
-    max-height: 200px;
-    background-size: contain;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* ✅ mantiene el cuadrado sin trucos raros */
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-    animation: riseToPosition 2s ease-out forwards;
-    z-index: 0; 
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 
 @keyframes floatHeart {
     0% {
@@ -336,6 +332,7 @@ p {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 
 
 
