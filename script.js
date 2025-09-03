@@ -54,8 +54,7 @@ function createPhotos() {
         photo.classList.add('photo');
         photo.style.backgroundImage = `url('${photoUrl}')`;
         // Posición inicial en la parte inferior
-       photo.style.left = `${Math.random() * 80}vw`;
-		photo.style.top = `${Math.random() * 70}vh`;
+       container.appendChild(photo);
         // Posición final en el mosaico
         const finalX = `${photoPositions[index].x}vw`;
         const finalY = `${photoPositions[index].y}vh`;
@@ -235,6 +234,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
