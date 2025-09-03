@@ -49,6 +49,7 @@ const photoPositions = [
 
 // Crear fotos en mosaico 2x3
 function createPhotos() {
+	 const container = document.querySelector(".photos-container");
     photos.forEach((photoUrl, index) => {
         const photo = document.createElement('div');
         photo.classList.add('photo');
@@ -234,6 +235,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
