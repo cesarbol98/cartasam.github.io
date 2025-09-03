@@ -46,7 +46,7 @@ p {
 .phrase {
     position: absolute;
     color: #ff6f61; /* Rojo coral para el texto */
-    font-size: 1.2em;
+    font-size: clamp(0.8em, 3vw, 1.2em);
     font-family: 'Annie Use Your Telescope', cursive;
     background: rgba(255, 255, 255, 0.8); /* Fondo de burbuja de mensaje */
     padding: 8px 12px;
@@ -81,8 +81,10 @@ p {
 
 .photo {
     position: absolute;
-    width: 250px; /* Tamaño grande */
-    height: 250px;
+    width: 40vw;
+    height: 40vw;
+    max-width: 250px;
+    max-height: 250px;
     background-size: contain; /* Mostrar imagen completa */
     background-position: center; /* Corregido de 'justify' a 'center' */
     background-repeat: no-repeat;
@@ -255,8 +257,10 @@ p {
 
 .auto-sticker {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 10vw;
+    height: 10vw;
+    max-width: 60px;
+    max-height: 60px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -294,11 +298,18 @@ p {
 }
 
 .card-style p {
-    font-size: 1.5em;
+    font-size: clamp(1em, 4vw, 1.5em); 
     color: #ff4d4d;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
     font-family: 'Annie Use Your Telescope', cursive;
     margin: 10px 0;
+}
+
+#pinkboard {
+    width: 80vw;
+    height: 80vw;
+    max-width: 400px; 
+    max-height: 400px;
 }
 
 
