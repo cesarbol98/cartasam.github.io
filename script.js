@@ -49,29 +49,42 @@ const photoPositions = [
 
 // Crear fotos en mosaico 2x3
 function createPhotos() {
-	 const container = document.querySelector(".photos-container");
-    photos.forEach((photoUrl, index) => {
-        const photo = document.createElement('div');
-        photo.classList.add('photo');
-        photo.style.backgroundImage = `url('${photoUrl}')`;
-        // Posición inicial en la parte inferior
-       container.appendChild(photo);
-        // Posición final en el mosaico
-        const finalX = `${photoPositions[index].x}vw`;
-        const finalY = `${photoPositions[index].y}vh`;
-        photo.style.animation = `riseToPosition 2s ease-out forwards ${index * 0.2}s`; // Retraso incremental
-        photo.style.setProperty('--final-x', finalX);
-        photo.style.setProperty('--final-y', finalY);
-        document.body.appendChild(photo);
+    const container = document.querySelector(".photos-container");
 
-        // Mantener la posición final después de la animación
-        photo.addEventListener('animationend', () => {
-            photo.style.transform = 'translate(0, 0)';
-            photo.style.left = finalX;
-            photo.style.top = finalY;
+    if (window.innerWidth > 800) {
+        // 🖥️ Versión PC → Mosaico 2x3
+        photos.forEach((photoUrl, index) => {
+            const photo = document.createElement('div');
+            photo.classList.add('photo');
+            photo.style.backgroundImage = `url('${photoUrl}')`;
+
+            // Posición final en el mosaico
+            const finalX = `${photoPositions[index].x}vw`;
+            const finalY = `${photoPositions[index].y}vh`;
+            photo.style.animation = `riseToPosition 2s ease-out forwards ${index * 0.2}s`;
+            photo.style.setProperty('--final-x', finalX);
+            photo.style.setProperty('--final-y', finalY);
+
+            document.body.appendChild(photo);
+
+            // Mantener la posición final después de la animación
+            photo.addEventListener('animationend', () => {
+                photo.style.transform = 'translate(0, 0)';
+                photo.style.left = finalX;
+                photo.style.top = finalY;
+            });
         });
-    });
+    } else {
+        // 📱 Versión móvil → Grid ordenado
+        photos.forEach(photoUrl => {
+            const photo = document.createElement('div');
+            photo.classList.add('photo');
+            photo.style.backgroundImage = `url('${photoUrl}')`;
+            container.appendChild(photo);
+        });
+    }
 }
+
 
 // Crear corazones automáticos
 function createAutoHeart() {
@@ -235,6 +248,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
