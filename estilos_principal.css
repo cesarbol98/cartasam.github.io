@@ -1,0 +1,275 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f8e1e9, #ffd1dc); /* Degradado romántico */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Annie Use Your Telescope', cursive;
+}
+
+.card {
+    position: relative;
+    width: 500px; /* Carta ancha */
+    height: 400px;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Degradado sutil */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 182, 193, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Sobre las flores */
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.02); /* Efecto hover suave */
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to bottom, #ff69b4, #ff0000); /* Degradado rosa a rojo */
+    transform: rotate(-45deg);
+    transition: opacity 0.3s;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+.heart.broken {
+    animation: breakHeart 1s forwards;
+}
+
+@keyframes breakHeart {
+    0% {
+        transform: rotate(-45deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-45deg) scale(0);
+        opacity: 0;
+    }
+}
+
+.heart-particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('heart.png') no-repeat center; /* Imagen local */
+    background-size: cover;
+    opacity: 1;
+    animation: disperseParticle 1s forwards;
+}
+
+@keyframes disperseParticle {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.card-text {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeInText 1s ease-out forwards 1s; /* Aparece después del corazón */
+}
+
+.card-text p {
+    font-size: 2em; /* Más grande */
+    color: #ff4d4d; /* Rojo vibrante */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    font-family: 'Annie Use Your Telescope', cursive;
+    margin: 0;
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.flower {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    bottom: 100vh; /* Comienza fuera de la pantalla */
+    animation: growFlower 2.5s ease-out forwards;
+    z-index: 5; /* Detrás de la carta */
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes growFlower {
+    0% {
+        bottom: 100vh;
+        opacity: 0;
+    }
+    100% {
+        bottom: 0; /* Parte inferior de la pantalla */
+        opacity: 1;
+    }
+}
+
+.border-flower {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    opacity: 0;
+    animation: appearFlower 1s ease-out forwards;
+    z-index: 8; /* Entre la carta y las flores que crecen */
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes appearFlower {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.arrow {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    z-index: 15;
+}
+
+.arrow svg {
+    transition: transform 0.3s, stroke 0.3s;
+}
+
+.arrow:hover svg {
+    transform: translateX(10px);
+    stroke: #ff1a1a; /* Color más vibrante al hover */
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 80vw; /* 80% del ancho de la pantalla */
+        height: 300px;
+    }
+    .heart {
+        width: 70px;
+        height: 70px;
+    }
+    .heart::before,
+    .heart::after {
+        width: 70px;
+        height: 70px;
+    }
+    .heart::before {
+        top: -35px;
+    }
+    .heart::after {
+        left: 35px;
+    }
+    .heart-particle {
+        width: 15px;
+        height: 15px;
+    }
+    .card-text p {
+        font-size: 1.5em;
+    }
+    .flower, .border-flower {
+        width: 45px;
+        height: 45px;
+    }
+    .arrow {
+        right: 15px;
+    }
+    .arrow svg {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.continue-container {
+    position: absolute;
+    bottom: 30px;       /* lo coloca debajo de la carta */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.continue-btn {
+    background: #ff4d4d;   /* Rojo romántico */
+    color: #fff;
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: 1.5em;
+    padding: 12px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.continue-btn:hover {
+    background: #e63946;
+    transform: scale(1.05);
+}
+.card-container {
+    display: flex;
+    flex-direction: column; /* coloca carta arriba, botón abajo */
+    align-items: center;    /* centra horizontalmente */
+    gap: 20px;              /* espacio entre carta y botón */
+    position: relative;
+    z-index: 20;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;  /* carta arriba, botón abajo */
+    align-items: center;     /* centrar horizontalmente */
+    gap: 20px;               /* espacio entre carta y botón */
+    position: relative;
+    z-index: 20;
+}
+
+.continue-container {
+    display: none; /* oculto hasta que se active */
+    text-align: center;
+    width: 100%;
+}

@@ -1,0 +1,277 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f8e1e9, #ffd1dc);
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'Annie Use Your Telescope', cursive; /* Fuente de Up */
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    cursor: pointer; /* Cursor para indicar que se puede hacer clic */
+}
+
+.container {
+	display: none;
+    position: absolute;
+    top: 20px; /* Título en la parte superior */
+    width: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 1.5em; /* Tamaño para la fuente decorativa */
+    color: #f5f5f5; /* Blanco suave */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    font-family: 'Annie Use Your Telescope', cursive; /* Fuente de Up */
+    margin: 5px 0; /* Espacio entre párrafos */
+}
+
+.heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('https://img.icons8.com/emoji/48/000000/heart-suit.png') no-repeat center;
+    background-size: cover;
+    opacity: 0.9;
+    animation: floatHeart 3s linear forwards;
+}
+
+.phrase {
+    position: absolute;
+    color: #ff6f61; /* Rojo coral para el texto */
+    font-size: 1.2em;
+    font-family: 'Annie Use Your Telescope', cursive;
+    background: rgba(255, 255, 255, 0.8); /* Fondo de burbuja de mensaje */
+    padding: 8px 12px;
+    border-radius: 15px; /* Bordes redondeados para estilo de mensaje */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    animation: fadePhrase 20s ease-out forwards; /* 20 segundos */
+}
+
+.auto-heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('https://img.icons8.com/emoji/48/000000/heart-suit.png') no-repeat center;
+    background-size: cover;
+    opacity: 0.8;
+    animation: fallAuto 5s linear forwards;
+}
+
+.auto-phrase {
+    position: absolute;
+    color: #ff6f61;
+    font-size: 1.2em;
+    font-family: 'Annie Use Your Telescope', cursive;
+    background: rgba(255, 255, 255, 0.8); /* Fondo de burbuja de mensaje */
+    padding: 8px 12px;
+    border-radius: 15px; /* Bordes redondeados para estilo de mensaje */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    animation: fadePhrase 20s ease-out forwards; /* 20 segundos */
+}
+
+.photo {
+    position: absolute;
+    width: 250px; /* Tamaño grande */
+    height: 250px;
+    background-size: contain; /* Mostrar imagen completa */
+    background-position: center; /* Corregido de 'justify' a 'center' */
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: riseToPosition 2s ease-out forwards; /* Corregido de 0s a 2s */
+    z-index: 0; /* Detrás de los corazones y frases */
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes fadePhrase {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0); /* Sin movimiento vertical para imitar mensajes */
+    }
+}
+
+@keyframes riseToPosition {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fallAuto {
+    0% {
+        transform: translateY(-100vh) translateX(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) translateX(20px) rotate(360deg);
+        opacity: 0.2;
+    }
+}
+
+.blink-heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('https://img.icons8.com/emoji/48/000000/heart-suit.png') no-repeat center;
+    background-size: cover;
+    animation: blink 1s infinite alternate;
+    opacity: 0;
+}
+
+@keyframes blink {
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1.2); }
+}
+
+.explosion-heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('https://img.icons8.com/emoji/48/000000/heart-suit.png') no-repeat center;
+    background-size: cover;
+    opacity: 1;
+    animation: explode 1s forwards;
+    filter: drop-shadow(0 0 5px white);
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    p {
+        font-size: 1.2em; /* Ajustado para móviles */
+    }
+    .heart, .auto-heart, .blink-heart {
+        width: 30px;
+        height: 30px;
+    }
+    .explosion-heart {
+        width: 15px;
+        height: 15px;
+    }
+    .phrase, .auto-phrase {
+        font-size: 1em;
+        padding: 6px 10px;
+    }
+    .photo {
+        width: 160px; /* Tamaño grande para móviles */
+        height: 160px;
+    }
+}
+
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8); /* Fondo oscuro */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    z-index: 9999;
+}
+
+#startButton {
+    padding: 15px 40px;
+    font-size: 1.5em;
+    font-family: 'Annie Use Your Telescope', cursive;
+    background: #ffffff;        /* Fondo blanco */
+    color: #ff6f61;             /* Texto en coral */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#startButton:hover {
+    background: #ff6f61;   /* Fondo coral al pasar el mouse */
+    color: #ffffff;        /* Texto blanco */
+    transform: scale(1.05);
+}
+
+
+.auto-sticker {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: fallSticker 7s linear forwards;
+    opacity: 0.9;
+    z-index: 3;
+}
+
+@keyframes fallSticker {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.card-style {
+    position: absolute;
+    top: 50px; /* un poco abajo de la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 182, 193, 0.5);
+    text-align: center;
+    padding: 20px;
+    z-index: 5; /* encima del fondo, pero detrás de corazones */
+
+
+}
+
+.card-style p {
+    font-size: 1.5em;
+    color: #ff4d4d;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    font-family: 'Annie Use Your Telescope', cursive;
+    margin: 10px 0;
+}
+
