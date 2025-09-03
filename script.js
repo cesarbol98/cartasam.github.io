@@ -17,7 +17,7 @@ audio.volume = 0.2; // 30% de volumen;
 
 // Lista de imágenes personalizadas
 const photos = [
-    'foto1.jpeg',
+    'foto1.jpg',
     'foto2.jpg',
     'foto3.jpg',
     'foto4.jpg',
@@ -235,5 +235,6 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
