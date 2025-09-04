@@ -32,7 +32,7 @@ body, html {
 
 /* Cuadro de la frase */
 .phrase-box {
-  background: rgba(0, 0, 0, 0.6); /* 🔥 Negro semitransparente */
+  background: rgba(0, 0, 0, 0.6); /* Negro semitransparente */
   padding: 20px 30px;
   border-radius: 20px;
   text-align: center;
@@ -40,12 +40,12 @@ body, html {
   max-width: 90%;
 }
 
-
-..phrase-box p {
+.phrase-box p {
   font-size: 1.5em;
-  color: #fff; /* ✅ blanco para resaltar sobre negro */
+  color: #ffffff; /* Blanco fuerte para contraste */
   margin: 0;
 }
+
 
 
 /* 📱 Adaptación para móviles */
