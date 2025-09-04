@@ -51,33 +51,28 @@ function createPhotos() {
     const container = document.querySelector(".photos-container");
 
     if (window.innerWidth > 800) {
-        // 🖥️ Versión PC → Mosaico 2x3
+        // 🖥️ Versión PC → Mosaico (absolute)
         photos.forEach((photoUrl, index) => {
             const photo = document.createElement('div');
             photo.classList.add('photo');
             photo.style.backgroundImage = `url('${photoUrl}')`;
 
-            // Posición final en el mosaico
+            // Posición del mosaico
             const finalX = `${photoPositions[index].x}vw`;
             const finalY = `${photoPositions[index].y}vh`;
-            photo.style.animation = `riseToPosition 2s ease-out forwards ${index * 0.2}s`;
-            photo.style.setProperty('--final-x', finalX);
-            photo.style.setProperty('--final-y', finalY);
+            photo.style.position = "absolute";
+            photo.style.left = finalX;
+            photo.style.top = finalY;
 
-            container.appendChild(photo); // ✅ ahora se meten dentro del contenedor
-            photo.addEventListener('animationend', () => {
-                photo.style.transform = 'translate(0, 0)';
-                photo.style.left = finalX;
-                photo.style.top = finalY;
-            });
+            document.body.appendChild(photo); // ✅ en PC va directo al body
         });
     } else {
-        // 📱 Versión móvil → Carrusel deslizable
+        // 📱 Versión móvil → debajo del texto (en contenedor)
         photos.forEach(photoUrl => {
             const photo = document.createElement('div');
             photo.classList.add('photo');
             photo.style.backgroundImage = `url('${photoUrl}')`;
-            container.appendChild(photo);
+            container.appendChild(photo); // ✅ en móvil sí va en el contenedor
         });
     }
 }
@@ -245,6 +240,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
