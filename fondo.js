@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const images = [
-    "foto1.jpg",
-    "foto2.jpg",
-    "foto3.jpg",
-    "foto4.jpg",
-    "foto5.jpg"
+    "fondo1.jpg",
+    "fondo2.jpg",
+    "fondo3.jpg",
+    "fondo4.jpg",
+    "fondo5.jpg",
+    "fondo6.jpg",
+    "fondo7.jpg",
+    "fondo8.jpg",
+    "fondo9.jpg",
   ];
 
   let index = 0;
