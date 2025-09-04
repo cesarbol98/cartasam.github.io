@@ -399,30 +399,26 @@ p {
   }
 }
 
-/* 📱 Carrusel en móvil */
+/* 📱 Grid de 2 columnas en móvil */
 @media (max-width: 800px) {
   .photos-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ dos columnas */
     gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
     padding: 20px;
     width: 100%;
+    box-sizing: border-box;
   }
 
   .photo {
-    flex: 0 0 70%;
-    aspect-ratio: 3 / 4;
+    width: 100%;
+    aspect-ratio: 3 / 4; /* mantiene proporción */
     background-size: cover;
     background-position: center;
     border-radius: 15px;
-    scroll-snap-align: center;
-  }
-
-  /* Ocultar scroll feo */
-  .photos-container::-webkit-scrollbar {
-    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
+
 
 
