@@ -1,0 +1,58 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Annie Use Your Telescope', cursive;
+  overflow: hidden;
+}
+
+/* Fondo que cambia */
+.slideshow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.5s ease-in-out;
+}
+
+/* Capa encima del fondo */
+.overlay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cuadro de la frase */
+.phrase-box {
+  background: rgba(255, 255, 255, 0.6); /* Transparente */
+  padding: 20px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 90%;
+}
+
+.phrase-box p {
+  font-size: 1.5em;
+  color: #ff4d4d;
+  margin: 0;
+}
+
+/* 📱 Adaptación para móviles */
+@media (max-width: 600px) {
+  .phrase-box {
+    padding: 15px 20px;
+  }
+
+  .phrase-box p {
+    font-size: 1.2em;
+  }
+}
