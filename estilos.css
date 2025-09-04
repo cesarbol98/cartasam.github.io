@@ -3,7 +3,7 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #f8e1e9, #ffd1dc);
     background-size: cover;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-family: 'Annie Use Your Telescope', cursive; /* Fuente de Up */
     display: flex;
     flex-direction: column; /* Alinear elementos verticalmente */
@@ -396,6 +396,7 @@ p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
+
 
 
 
