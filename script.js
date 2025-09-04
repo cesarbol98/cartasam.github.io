@@ -18,12 +18,12 @@ audio.volume = 0.2; // 30% de volumen;
 // Lista de imágenes personalizadas
 // Lista de imágenes personalizadas con frases
 const photos = [
-    { src: 'foto1.jpg', frase: 'Nuestro primer viaje juntos 💕' },
-    { src: 'foto2.jpg', frase: 'Siempre a tu lado 😘' },
-    { src: 'foto3.jpg', frase: 'Un recuerdo inolvidable ✨' },
-    { src: 'foto4.jpg', frase: 'La aventura continúa 🚀' },
-    { src: 'foto5.jpg', frase: 'Este momento fue solo nuestro ❤️' },
-    { src: 'foto6.jpg', frase: 'Eres mi persona favorita 🌹' }
+    { src: 'foto1.jpg', frase: 'Cuando estoy contigo, no quiero regresar a casa 💕' },
+    { src: 'foto2.jpg', frase: 'Aparte de gustarme, te admiro 😘' },
+    { src: 'foto3.jpg', frase: 'Eres mi primer pensamiento por la mañana y el ultimo al dormir✨' },
+    { src: 'foto4.jpg', frase: 'Tú eres unica como la luna 🚀' },
+    { src: 'foto5.jpg', frase: 'Tengo pensado quererte por lo menos otras mil vidas más ❤️' },
+    { src: 'foto6.jpg', frase: 'Nose como, pero mi mundo se volvio loco con tu sonrisa🌹' }
 ];
 
 
@@ -287,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
 
 
 
