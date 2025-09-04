@@ -16,14 +16,16 @@ audio.volume = 0.2; // 30% de volumen;
 });
 
 // Lista de imágenes personalizadas
+// Lista de imágenes personalizadas con frases
 const photos = [
-    'foto1.jpg',
-    'foto2.jpg',
-    'foto3.jpg',
-    'foto4.jpg',
-    'foto5.jpg',
-    'foto6.jpg'
+    { src: 'foto1.jpg', frase: 'Nuestro primer viaje juntos 💕' },
+    { src: 'foto2.jpg', frase: 'Siempre a tu lado 😘' },
+    { src: 'foto3.jpg', frase: 'Un recuerdo inolvidable ✨' },
+    { src: 'foto4.jpg', frase: 'La aventura continúa 🚀' },
+    { src: 'foto5.jpg', frase: 'Este momento fue solo nuestro ❤️' },
+    { src: 'foto6.jpg', frase: 'Eres mi persona favorita 🌹' }
 ];
+
 
 // Lista de frases románticas
 const phrases = [
@@ -52,10 +54,10 @@ function createPhotos() {
 
     if (window.innerWidth > 800) {
         // 🖥️ Versión PC → Mosaico (absolute)
-        photos.forEach((photoUrl, index) => {
+        photos.forEach((item, index) => {
             const photo = document.createElement('div');
             photo.classList.add('photo');
-            photo.style.backgroundImage = `url('${photoUrl}')`;
+            photo.style.backgroundImage = `url('${item.src}')`;
 
             // Posición del mosaico
             const finalX = `${photoPositions[index].x}vw`;
@@ -64,18 +66,30 @@ function createPhotos() {
             photo.style.left = finalX;
             photo.style.top = finalY;
 
-            document.body.appendChild(photo); // ✅ en PC va directo al body
+            // Abrir modal al hacer click
+            photo.addEventListener("click", () => {
+                openModal(item.src, item.frase);
+            });
+
+            document.body.appendChild(photo);
         });
     } else {
         // 📱 Versión móvil → debajo del texto (en contenedor)
-        photos.forEach(photoUrl => {
+        photos.forEach(item => {
             const photo = document.createElement('div');
             photo.classList.add('photo');
-            photo.style.backgroundImage = `url('${photoUrl}')`;
-            container.appendChild(photo); // ✅ en móvil sí va en el contenedor
+            photo.style.backgroundImage = `url('${item.src}')`;
+
+            // Abrir modal al hacer click
+            photo.addEventListener("click", () => {
+                openModal(item.src, item.frase);
+            });
+
+            container.appendChild(photo);
         });
     }
 }
+
 
 
 // Crear corazones automáticos
@@ -252,6 +266,27 @@ function createUpSticker() {
 
 
 
+
+// Función para abrir modal
+function openModal(src, frase) {
+    const modal = document.getElementById("photoModal");
+    const modalImg = document.getElementById("modalImage");
+    const caption = document.getElementById("modalCaption");
+
+    modal.style.display = "flex";
+    modalImg.src = src;
+    caption.textContent = frase;
+}
+
+// Cerrar modal con botón X
+document.addEventListener("DOMContentLoaded", () => {
+    const closeBtn = document.querySelector(".close");
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            document.getElementById("photoModal").style.display = "none";
+        };
+    }
+});
 
 
 
