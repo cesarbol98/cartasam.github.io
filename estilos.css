@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column; /* Alinear elementos verticalmente */
     align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
     color: #fff;
     text-align: center;
     cursor: pointer; /* Cursor para indicar que se puede hacer clic */
@@ -396,6 +396,7 @@ p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
+
 
 
 
