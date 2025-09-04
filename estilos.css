@@ -375,29 +375,6 @@ p {
   }
 }
 
-/* 📱 Versión móvil (carrusel deslizable) */
-@media (max-width: 800px) {
-  .photos-container {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 20px;
-  }
-  .photo {
-    flex: 0 0 70%; /* ocupa 70% del ancho de pantalla */
-    aspect-ratio: 3 / 4; /* formato vertical */
-    background-size: cover;
-    background-position: center;
-    border-radius: 15px;
-    scroll-snap-align: center;
-  }
-
-  /* Ocultar scroll feo en móvil */
-  .photos-container::-webkit-scrollbar {
-    display: none;
-  }
-}
 
 /* 📱 Grid de 2 columnas en móvil */
 @media (max-width: 800px) {
@@ -419,6 +396,7 @@ p {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 }
+
 
 
 
