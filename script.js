@@ -81,10 +81,15 @@ function createPhotos() {
 // Crear corazones automáticos
 function createAutoHeart() {
     const heart = document.createElement('div');
-    heart.classList.add('auto-heart');
-    heart.style.left = `${Math.random() * 90}vw`; // Posición aleatoria
-    heart.style.animationDuration = `${Math.random() * 3 + 5}s`; // Duración entre 5 y 8 segundos
-    document.body.appendChild(heart);
+heart.classList.add('auto-heart');
+
+const H = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, window.innerHeight);
+heart.style.top  = `${Math.random() * (H - 120)}px`;   // NUEVO
+heart.style.left = `${Math.random() * 90}vw`;
+heart.style.animationDuration = `${Math.random() * 3 + 5}s`;
+
+document.body.appendChild(heart);
+
 
     // Eliminar corazón después de la animación
     setTimeout(() => {
@@ -98,8 +103,12 @@ function createAutoPhrase() {
     phrase.classList.add('auto-phrase');
     phrase.textContent = phrases[Math.floor(Math.random() * phrases.length)];
     // Posición aleatoria en toda la pantalla (pueden encimarse)
-    phrase.style.left = `${Math.random() * 80 + 10}vw`;
-    phrase.style.top = `${Math.random() * 80 + 10}vh`;
+    const H = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, window.innerHeight);
+const W = Math.max(document.body.scrollWidth,  document.documentElement.scrollWidth,  window.innerWidth);
+
+phrase.style.left = `${Math.random() * (W - 160) + 20}px`;
+phrase.style.top  = `${Math.random() * (H - 160) + 20}px`;
+
     document.body.appendChild(phrase);
 
     // Eliminar frase después de la animación (20 segundos)
@@ -240,6 +249,7 @@ function createUpSticker() {
         sticker.remove();
     }, 7000);
 }
+
 
 
 
