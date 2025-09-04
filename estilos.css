@@ -449,4 +449,15 @@ p {
 
 
 
+#effectsLayer {
+  position: relative;
+  width: 100%;
+  min-height: 200px; /* espacio para las frases/corazones */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* evita que se expandan */
+  z-index: 20;
+}
+
 
