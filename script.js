@@ -97,7 +97,8 @@ function createAutoHeart() {
     const heart = document.createElement('div');
 heart.classList.add('auto-heart');
 
-const H = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, window.innerHeight);
+const H = window.innerHeight;
+const W = window.innerWidth;
 heart.style.top  = `${Math.random() * (H - 120)}px`;   // NUEVO
 heart.style.left = `${Math.random() * 90}vw`;
 heart.style.animationDuration = `${Math.random() * 3 + 5}s`;
@@ -287,6 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
 
 
 
