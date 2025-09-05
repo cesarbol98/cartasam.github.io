@@ -22,8 +22,8 @@ const photos = [
     { src: 'foto2.jpg', frase: 'Aparte de gustarme, te admiro 😘' },
     { src: 'foto3.jpg', frase: 'Eres mi primer pensamiento por la mañana y el ultimo al dormir✨' },
     { src: 'foto4.jpg', frase: 'Tú eres unica como la luna 🚀' },
-    { src: 'foto5.jpg', frase: 'Tengo pensado quererte por lo menos otras mil vidas más ❤️' },
-    { src: 'foto6.jpg', frase: 'Nose como, pero mi mundo se volvio loco con tu sonrisa🌹' }
+    { src: 'foto5.jpg', frase: 'Nose como, pero mi mundo se volvio loco con tu sonrisa🌹' },
+    { src: 'foto6.jpg', frase: 'Tengo pensado quererte por lo menos otras mil vidas más ❤️' }
 ];
 
 
@@ -288,6 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 });
+
 
 
 
