@@ -7,10 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let index = 0;
 
-  // Crear capa de slideshow
-  const slideshow = document.createElement("div");
-  slideshow.classList.add("slideshow");
-  document.body.appendChild(slideshow);
+ // Crear dos capas para el efecto de transición
+const slideshow1 = document.createElement("div");
+const slideshow2 = document.createElement("div");
+
+slideshow1.classList.add("slideshow", "active");
+slideshow2.classList.add("slideshow");
+
+document.body.appendChild(slideshow1);
+document.body.appendChild(slideshow2);
+
+let current = slideshow1;
+let next = slideshow2;
+
 
   // Función para cambiar imagen
   function changeBackground() {
