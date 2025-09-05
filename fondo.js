@@ -42,3 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.style.display = "none"; // Oculta el botón después de iniciar música
   });
 });
+// Mostrar contenido y ocultar pantalla inicial
+    overlay.style.display = "flex";
+    startScreen.style.display = "none";
+  });
+});
