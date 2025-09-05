@@ -1,14 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const images = [
-    "fondo1.jpg",
-    "fondo2.jpg",
-    "fondo3.jpg",
-    "fondo4.jpg",
-    "fondo5.jpg",
-    "fondo6.jpg",
-    "fondo7.jpg",
-    "fondo8.jpg",
-    "fondo9.jpg",
+    "fondo1.jpg", "fondo2.jpg", "fondo3.jpg",
+    "fondo4.jpg", "fondo5.jpg", "fondo6.jpg",
+    "fondo7.jpg", "fondo8.jpg", "fondo9.jpg"
   ];
 
   let index = 0;
@@ -24,25 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
     index = (index + 1) % images.length;
   }
 
-  // Iniciar con la primera
+  // Iniciar slideshow
   changeBackground();
-  setInterval(changeBackground, 5000); // cambia cada 5s
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const music = document.getElementById("bg-music");
+  setInterval(changeBackground, 5000);
 
-  // 🎵 Control de música con botón
-document.addEventListener("DOMContentLoaded", () => {
+  // 🎵 Botón para iniciar
   const music = document.getElementById("bg-music");
-  const btn = document.getElementById("startMusicBtn");
+  const btn = document.getElementById("startButton");
+  const startScreen = document.getElementById("startScreen");
+  const overlay = document.querySelector(".overlay");
 
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
+  btn.addEventListener("click", () => {
     music.play();
-    btn.style.display = "none"; // Oculta el botón después de iniciar música
-  });
-});
-// Mostrar contenido y ocultar pantalla inicial
     overlay.style.display = "flex";
     startScreen.style.display = "none";
   });
