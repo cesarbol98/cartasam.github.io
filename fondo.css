@@ -14,11 +14,17 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background-size: cover;
   background-position: center;
-  transition: background-image 1.5s ease-in-out;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: -1;
 }
+
+.slideshow.active {
+  opacity: 1;
+}
+
 
 /* Capa encima del fondo */
 .overlay {
