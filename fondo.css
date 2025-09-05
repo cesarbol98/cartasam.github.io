@@ -58,3 +58,26 @@ body, html {
     font-size: 1.2em;
   }
 }
+.continue-container {
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.continue-btn {
+  background: #ff4d4d;   /* Rojo romántico */
+  color: #fff;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 1.5em;
+  padding: 12px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+  display: inline-block;
+}
+
+.continue-btn:hover {
+  background: #e63946;
+  transform: scale(1.05);
+}
