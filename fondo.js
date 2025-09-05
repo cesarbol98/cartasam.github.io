@@ -43,6 +43,10 @@ function changeBackground() {
 
   index = (index + 1) % images.length;
 }
+ // Iniciar con la primera imagen
+current.style.backgroundImage = `url('${images[index]}')`;
+index++;
+setInterval(changeBackground, 5000); // cambia cada 5s
 
 
   // 🎵 Botón para iniciar
