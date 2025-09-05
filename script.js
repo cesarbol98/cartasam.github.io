@@ -289,9 +289,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
-
+.startMessage {
+    color: #fff;
+    font-size: 1.3em;
+    font-family: 'Annie Use Your Telescope', cursive;
+    margin-bottom: 20px; /* espacio arriba del botón */
+    text-align: center;
+}
 
 
 
