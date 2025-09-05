@@ -31,11 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bg-music");
 
-  // Intentar reproducir de inmediato
-  music.play().catch(() => {
-    // Si el navegador bloquea autoplay, activar después de un toque
-    document.body.addEventListener("click", () => {
-      music.play();
-    }, { once: true });
+  // 🎵 Control de música con botón
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("startMusicBtn");
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    music.play();
+    btn.style.display = "none"; // Oculta el botón después de iniciar música
   });
 });
