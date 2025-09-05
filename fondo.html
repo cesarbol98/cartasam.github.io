@@ -8,23 +8,26 @@
   <link rel="stylesheet" href="fondo.css">
 </head>
 <body>
-   <div id="startScreen">
+  <!-- Pantalla inicial -->
+  <div id="startScreen">
     <button id="startButton">💖 Continuar</button>
   </div>
-  <div class="overlay">
+
+  <!-- Contenido oculto -->
+  <div class="overlay" style="display:none;">
     <div class="phrase-box">
-      <p>No necesito tenerte para quererte, te quiero mientras respiro, mientraste sueño, mientras te pienso. </p>
+      <p>No necesito tenerte para quererte, te quiero mientras respiro, mientras te sueño, mientras te pienso.</p>
       <p>"Te quiero mientras vivo" 💖</p>
     </div>
   </div>
-<div class="continue-container">
-  <a id="startMusicBtn" class="continue-btn" href="#">Continuar</a>
-</div>
-  <script src="fondo.js"></script>
-  <audio id="bg-music" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio.
-</audio>
 
+  <!-- Música -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script src="fondo.js"></script>
 </body>
+
 </html>
