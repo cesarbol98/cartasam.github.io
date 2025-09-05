@@ -28,3 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
   changeBackground();
   setInterval(changeBackground, 5000); // cambia cada 5s
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bg-music");
+
+  // Intentar reproducir de inmediato
+  music.play().catch(() => {
+    // Si el navegador bloquea autoplay, activar después de un toque
+    document.body.addEventListener("click", () => {
+      music.play();
+    }, { once: true });
+  });
+});
