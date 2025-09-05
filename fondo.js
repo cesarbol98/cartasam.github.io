@@ -27,9 +27,23 @@ let next = slideshow2;
     index = (index + 1) % images.length;
   }
 
-  // Iniciar slideshow
-  changeBackground();
-  setInterval(changeBackground, 5000);
+  let index = 0;
+
+function changeBackground() {
+  next.style.backgroundImage = `url('${images[index]}')`;
+
+  // Cambiar clases para animar transición
+  next.classList.add("active");
+  current.classList.remove("active");
+
+  // Intercambiar referencias
+  const temp = current;
+  current = next;
+  next = temp;
+
+  index = (index + 1) % images.length;
+}
+
 
   // 🎵 Botón para iniciar
   const music = document.getElementById("bg-music");
